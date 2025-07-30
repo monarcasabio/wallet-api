@@ -10,8 +10,8 @@ using WalletSystem.Infrastructure.Data;
 
 namespace WalletSystem.Infrastructure.Migrations
 {
-    [DbContext(typeof(WalletDbContext))]
-    partial class WalletDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(WalletSystemDbContext))]
+    partial class WalletSystemDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

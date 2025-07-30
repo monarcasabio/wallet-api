@@ -3,9 +3,9 @@ using WalletSystem.Core.Domain.Entities;
 
 namespace WalletSystem.Infrastructure.Data;
 
-public class WalletDbContext : DbContext
+public class WalletSystemDbContext : DbContext
 {
-    public WalletDbContext(DbContextOptions<WalletDbContext> options)
+    public WalletSystemDbContext(DbContextOptions<WalletSystemDbContext> options)
         : base(options) { }
 
     public DbSet<Wallet> Wallets { get; set; }
@@ -13,7 +13,7 @@ public class WalletDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(WalletDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(WalletSystemDbContext).Assembly);
         base.OnModelCreating(modelBuilder);
     }
 }

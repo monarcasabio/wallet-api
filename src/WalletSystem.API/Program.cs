@@ -1,10 +1,15 @@
 using Microsoft.EntityFrameworkCore;
+using WalletSystem.Core.Application.Interfaces.Repositories;
 using WalletSystem.Infrastructure.Data;
+using WalletSystem.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<WalletDbContext>(options =>
+builder.Services.AddDbContext<WalletSystemDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Añadir los repositorios al contenedor de DI
+builder.Services.AddScoped<IWalletRepository, WalletRepository>();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
