@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WalletSystem.Core.Application.DTOs.Wallet;
 using WalletSystem.Core.Application.Interfaces.Services;
@@ -18,6 +19,7 @@ public class WalletsController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = wallet.Id }, wallet);
     }
 
+    [Authorize]
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
@@ -26,6 +28,7 @@ public class WalletsController : ControllerBase
         return Ok(dto);
     }
 
+    [Authorize]
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateName(int id, [FromBody] UpdateWalletNameDto dto)
     {
@@ -33,6 +36,7 @@ public class WalletsController : ControllerBase
         return NoContent();
     }
 
+    [Authorize]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Deactivate(int id)
     {
