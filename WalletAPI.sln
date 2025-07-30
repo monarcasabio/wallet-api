@@ -5,15 +5,15 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12A7C360-5526-40FB-B0A2-01ABA10D7EFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.API", "src\Wallet.API\Wallet.API.csproj", "{7B0F478D-1BD6-4D60-B264-F88769F40CAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletSystem.API", "src\WalletSystem.API\WalletSystem.API.csproj", "{7B0F478D-1BD6-4D60-B264-F88769F40CAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Core", "src\Wallet.Core\Wallet.Core.csproj", "{A7B72D64-D749-4931-A120-F5B8E4C68E58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletSystem.Core", "src\WalletSystem.Core\WalletSystem.Core.csproj", "{A7B72D64-D749-4931-A120-F5B8E4C68E58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Infrastructure", "src\Wallet.Infrastructure\Wallet.Infrastructure.csproj", "{CFF2D5E9-E7F8-4616-94C9-A85C0297EE35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletSystem.Infrastructure", "src\WalletSystem.Infrastructure\WalletSystem.Infrastructure.csproj", "{CFF2D5E9-E7F8-4616-94C9-A85C0297EE35}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{82335C2E-21B0-47A3-9C47-9051206E7C6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet.Tests", "tests\Wallet.Tests\Wallet.Tests.csproj", "{75A2F3A1-F959-46FA-A45C-14DF751B1E70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletSystem.Tests", "tests\WalletSystem.Tests\WalletSystem.Tests.csproj", "{75A2F3A1-F959-46FA-A45C-14DF751B1E70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

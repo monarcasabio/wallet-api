@@ -1,3 +1,7 @@
+using WalletSystem.Core.Domain.Enums;
+
+namespace WalletSystem.Core.Domain.Entities;
+
 public class Movement
 {
     public int Id { get; set; }

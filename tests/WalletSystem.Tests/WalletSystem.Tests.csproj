@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Wallet.API\Wallet.API.csproj" />
-    <ProjectReference Include="..\..\src\Wallet.Core\Wallet.Core.csproj" />
+    <ProjectReference Include="..\..\src\WalletSystem.API\WalletSystem.API.csproj" />
+    <ProjectReference Include="..\..\src\WalletSystem.Core\WalletSystem.Core.csproj" />
   </ItemGroup>
 
 </Project>
