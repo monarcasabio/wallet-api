@@ -16,6 +16,8 @@ builder.Services.AddDbContext<WalletSystemDbContext>(options =>
 // Añadir los repositorios al contenedor de DI
 builder.Services.AddScoped<IWalletRepository, WalletRepository>();
 builder.Services.AddScoped<IWalletService, WalletService>();
+builder.Services.AddScoped<IMovementRepository, MovementRepository>();
+builder.Services.AddScoped<IMovementService, MovementService>();
 
 builder.Services.AddControllers();
 
