@@ -3,6 +3,8 @@ using WalletSystem.Core.Application.Interfaces.Repositories;
 using WalletSystem.Core.Application.Interfaces.Services;
 using WalletSystem.Core.Domain.Entities;
 
+namespace WalletSystem.Core.Application.Services;
+
 public class WalletService : IWalletService
 {
 	private readonly IWalletRepository _walletRepository;

@@ -3,6 +3,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using WalletSystem.Core.Application.Interfaces.Repositories;
 using WalletSystem.Core.Application.Interfaces.Services;
+using WalletSystem.Core.Application.Services;
 using WalletSystem.Core.Application.Validators;
 using WalletSystem.Infrastructure.Data;
 using WalletSystem.Infrastructure.Repositories;

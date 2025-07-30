@@ -1,0 +1,34 @@
+using Moq;
+using WalletSystem.Core.Application.DTOs.Wallet;
+using WalletSystem.Core.Application.Interfaces.Repositories;
+using WalletSystem.Core.Application.Services;
+using WalletSystem.Core.Domain.Entities;
+using FluentValidation;         
+using FluentValidation.Results;
+using Xunit;
+
+namespace WalletSystem.Tests.Unit;
+
+public class WalletServiceTests
+{
+    [Fact]
+    public async Task CreateWalletAsync_ReturnsWallet()
+    {
+        // Arrange
+        var dto = new CreateWalletDto("A123", "Test");
+        var repoMock = new Mock<IWalletRepository>();
+        repoMock.Setup(r => r.AddAsync(It.IsAny<Wallet>()))
+                .ReturnsAsync((Wallet w) => w);
+
+        var sut = new WalletService(repoMock.Object);
+
+        // Act
+        var result = await sut.CreateWalletAsync(dto);
+
+        // Assert
+        Assert.Equal("A123", result.DocumentId);
+        Assert.Equal("Test", result.Name);
+        Assert.Equal(0, result.Balance);
+        Assert.True(result.IsActive);
+    }
+}
