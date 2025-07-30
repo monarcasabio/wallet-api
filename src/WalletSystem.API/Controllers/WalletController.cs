@@ -22,7 +22,8 @@ public class WalletsController : ControllerBase
     public async Task<IActionResult> GetById(int id)
     {
         var wallet = await _service.GetByIdAsync(id);
-        return wallet is null ? NotFound() : Ok(wallet);
+        var dto = new WalletDto(wallet.Id, wallet.DocumentId, wallet.Name, wallet.Balance, wallet.CreatedAt, wallet.UpdatedAt, wallet.IsActive);
+        return Ok(dto);
     }
 
     [HttpPut("{id:int}")]
