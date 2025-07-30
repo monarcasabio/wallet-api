@@ -28,4 +28,7 @@ public class WalletService : IWalletService
 
 		return await _walletRepository.AddAsync(wallet);
 	}
+
+    public async Task<Wallet?> GetByIdAsync(int id)
+    => await _walletRepository.GetByIdAsync(id);
 }

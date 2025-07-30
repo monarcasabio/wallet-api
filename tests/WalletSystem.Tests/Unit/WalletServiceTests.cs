@@ -31,4 +31,15 @@ public class WalletServiceTests
         Assert.Equal(0, result.Balance);
         Assert.True(result.IsActive);
     }
+
+    [Fact]
+    public async Task GetByIdAsync_ReturnsNull_WhenNotFound()
+    {
+        var repoMock = new Mock<IWalletRepository>();
+        repoMock.Setup(r => r.GetByIdAsync(99)).ReturnsAsync((Wallet?)null);
+        var sut = new WalletService(repoMock.Object);
+
+        var result = await sut.GetByIdAsync(99);
+        Assert.Null(result);
+    }
 }

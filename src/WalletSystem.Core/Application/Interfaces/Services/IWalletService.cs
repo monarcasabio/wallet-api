@@ -6,4 +6,5 @@ namespace WalletSystem.Core.Application.Interfaces.Services;
 public interface IWalletService
 {
     Task<Wallet> CreateWalletAsync(CreateWalletDto dto);
+    Task<Wallet?> GetByIdAsync(int id);
 }

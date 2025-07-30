@@ -5,11 +5,11 @@ using WalletSystem.Core.Application.Interfaces.Services;
 namespace WalletSystem.API.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
-public class WalletController : ControllerBase
+[Route("api/wallets")]
+public class WalletsController : ControllerBase
 {
     private readonly IWalletService _service;
-    public WalletController(IWalletService service) => _service = service;
+    public WalletsController(IWalletService service) => _service = service;
 
     [HttpPost]
     public async Task<IActionResult> CreateAsync([FromBody] CreateWalletDto dto, CancellationToken ct)
@@ -19,5 +19,9 @@ public class WalletController : ControllerBase
     }
 
     [HttpGet("{id:int}")]
-    public IActionResult GetById(int id) => Ok();
+    public async Task<IActionResult> GetById(int id)
+    {
+        var wallet = await _service.GetByIdAsync(id);
+        return wallet is null ? NotFound() : Ok(wallet);
+    }
 }
