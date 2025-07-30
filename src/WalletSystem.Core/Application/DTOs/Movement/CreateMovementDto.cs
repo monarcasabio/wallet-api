@@ -2,4 +2,4 @@
 
 namespace WalletSystem.Core.Application.DTOs.Movement;
 
-public record CreateMovementDto(decimal Amount, MovementType Type);
+public record CreateMovementDto(decimal Amount, MovementType Type, int? RelatedWalletId = null);

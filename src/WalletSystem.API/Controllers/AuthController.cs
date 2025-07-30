@@ -15,7 +15,6 @@ public class AuthController : ControllerBase
     private readonly IConfiguration _config;
     public AuthController(IConfiguration config) => _config = config;
 
-    [AllowAnonymous]
     [HttpPost("login")]
     public IActionResult Login([FromBody] LoginDto dto)
     {

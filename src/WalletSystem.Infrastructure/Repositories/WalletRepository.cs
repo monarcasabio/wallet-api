@@ -24,14 +24,13 @@ public class WalletRepository : IWalletRepository
     public async Task<Wallet> AddAsync(Wallet wallet)
     {
         _context.Wallets.Add(wallet);
-        await _context.SaveChangesAsync();
         return wallet;
     }
 
     public async Task UpdateAsync(Wallet wallet)
     {
         wallet.UpdatedAt = DateTime.UtcNow;
-        await _context.SaveChangesAsync();
+        _context.Wallets.Update(wallet);
     }
 
     public async Task DeactivateAsync(int id)
@@ -44,7 +43,5 @@ public class WalletRepository : IWalletRepository
 
         wallet.IsActive = false;
         wallet.UpdatedAt = DateTime.UtcNow;
-
-        await _context.SaveChangesAsync();
     }
 }

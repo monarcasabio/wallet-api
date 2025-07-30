@@ -2,8 +2,5 @@
 
 namespace WalletSystem.Core.Application.DTOs.Movement;
 
-public record MovementDto(int Id,
-                          int WalletId,
-                          decimal Amount,
-                          MovementType Type,
-                          DateTime CreatedAt);
+public record MovementDto(int Id, int WalletId, int? RelatedWalletId,
+                          decimal Amount, MovementType Type, DateTime CreatedAt);

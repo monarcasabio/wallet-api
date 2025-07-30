@@ -7,4 +7,5 @@ public interface IMovementService
 {
     Task<IEnumerable<Movement>> GetByWalletAsync(int walletId);
     Task<MovementDto> CreateMovementAsync(int walletId, CreateMovementDto dto);
+    Task TransferAsync(int fromWalletId, TransferDto dto);
 }
