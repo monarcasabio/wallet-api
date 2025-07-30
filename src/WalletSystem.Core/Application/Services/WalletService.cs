@@ -41,4 +41,9 @@ public class WalletService : IWalletService
         wallet.Name = newName;
         await _walletRepository.UpdateAsync(wallet);
     }
+
+    public async Task DeactivateWalletAsync(int id)
+    {
+        await _walletRepository.DeactivateAsync(id);
+    }
 }

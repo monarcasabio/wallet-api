@@ -8,4 +8,5 @@ public interface IWalletService
     Task<Wallet> CreateWalletAsync(CreateWalletDto dto);
     Task<Wallet?> GetByIdAsync(int id);
     Task UpdateWalletNameAsync(int id, string newName);
+    Task DeactivateWalletAsync(int id);
 }

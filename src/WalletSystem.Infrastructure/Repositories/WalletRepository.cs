@@ -21,12 +21,6 @@ public class WalletRepository : IWalletRepository
             .FirstOrDefaultAsync(w => w.Id == id && w.IsActive);
     }
 
-    public async Task<Wallet?> GetByDocumentIdAsync(string documentId)
-    {
-        return await _context.Wallets
-            .FirstOrDefaultAsync(w => w.DocumentId == documentId && w.IsActive);
-    }
-
     public async Task<Wallet> AddAsync(Wallet wallet)
     {
         _context.Wallets.Add(wallet);

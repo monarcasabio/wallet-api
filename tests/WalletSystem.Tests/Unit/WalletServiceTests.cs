@@ -54,4 +54,16 @@ public class WalletServiceTests
         await Assert.ThrowsAsync<WalletNotFoundException>(
             () => sut.UpdateWalletNameAsync(99, "New"));
     }
+
+    [Fact]
+    public async Task DeactivateWalletAsync_Throws_WhenNotFound()
+    {
+        var repoMock = new Mock<IWalletRepository>();
+        repoMock.Setup(r => r.DeactivateAsync(99))
+                .ThrowsAsync(new WalletNotFoundException(99));
+        var sut = new WalletService(repoMock.Object);
+
+        await Assert.ThrowsAsync<WalletNotFoundException>(
+            () => sut.DeactivateWalletAsync(99));
+    }
 }

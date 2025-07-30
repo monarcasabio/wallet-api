@@ -31,4 +31,11 @@ public class WalletsController : ControllerBase
         await _service.UpdateWalletNameAsync(id, dto.Name);
         return NoContent();
     }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Deactivate(int id)
+    {
+        await _service.DeactivateWalletAsync(id);
+        return NoContent();
+    }
 }
