@@ -2,6 +2,7 @@ using WalletSystem.Core.Application.DTOs.Wallet;
 using WalletSystem.Core.Application.Interfaces.Repositories;
 using WalletSystem.Core.Application.Interfaces.Services;
 using WalletSystem.Core.Domain.Entities;
+using WalletSystem.Core.Domain.Exceptions;
 
 namespace WalletSystem.Core.Application.Services;
 
@@ -31,4 +32,13 @@ public class WalletService : IWalletService
 
     public async Task<Wallet?> GetByIdAsync(int id)
     => await _walletRepository.GetByIdAsync(id);
+
+    public async Task UpdateWalletNameAsync(int id, string newName)
+    {
+        var wallet = await _walletRepository.GetByIdAsync(id)
+                     ?? throw new WalletNotFoundException(id);
+
+        wallet.Name = newName;
+        await _walletRepository.UpdateAsync(wallet);
+    }
 }

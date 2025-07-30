@@ -3,6 +3,7 @@ using WalletSystem.Core.Application.DTOs.Wallet;
 using WalletSystem.Core.Application.Interfaces.Repositories;
 using WalletSystem.Core.Application.Services;
 using WalletSystem.Core.Domain.Entities;
+using WalletSystem.Core.Domain.Exceptions;
 using FluentValidation;         
 using FluentValidation.Results;
 using Xunit;
@@ -41,5 +42,16 @@ public class WalletServiceTests
 
         var result = await sut.GetByIdAsync(99);
         Assert.Null(result);
+    }
+
+    [Fact]
+    public async Task UpdateWalletNameAsync_Throws_WhenNotFound()
+    {
+        var repoMock = new Mock<IWalletRepository>();
+        repoMock.Setup(r => r.GetByIdAsync(99)).ReturnsAsync((Wallet?)null);
+        var sut = new WalletService(repoMock.Object);
+
+        await Assert.ThrowsAsync<WalletNotFoundException>(
+            () => sut.UpdateWalletNameAsync(99, "New"));
     }
 }
